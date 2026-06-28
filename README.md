@@ -64,22 +64,43 @@ python3 scripts/conva.py install
 
 This command:
 
-- syncs Claude Code guide and slash-command adapters into `.claude/`
-- refreshes Codex plugin metadata in `.codex-plugin/plugin.json`
+- syncs project Claude Code guide and slash-command adapters into `.claude/`
+- installs managed user-level Claude Code commands into `~/.claude/commands/`
+- creates `~/plugins/convallaria` as a symlink to this checkout for the default personal Codex marketplace
+- creates or updates `~/.agents/plugins/marketplace.json` with a local `convallaria` plugin entry
 - runs the smoke test by default
-- prints the next local Codex plugin command when it can infer one
+- prints the local Codex reinstall command, usually `codex plugin add convallaria@personal`
 
-For Claude Code, use the synced slash commands:
+For Claude Code, use the slash commands:
 
 ```text
 /conva
-/conva-brand
+/conva-concept
 /conva-logo
 /conva-refine
-/conva-optimize
+/conva-images
+/conva-tokens
+/conva-audit
+/conva-pack
+/conva-export
 ```
 
-For Codex, use the local plugin entry that points at this checkout. The plugin manifest exposes `skills/`, and the main skill is `skills/convallaria/SKILL.md`.
+Compatibility aliases remain available:
+
+```text
+/conva-brand -> /conva-concept
+/conva-optimize -> /conva-images
+```
+
+If a Claude Code command shows as unknown, run `python3 scripts/conva.py install` from this checkout and restart Claude Code if the command list is already loaded.
+
+For Codex, run the command printed by the installer:
+
+```bash
+codex plugin add convallaria@personal
+```
+
+Then start a new Codex thread so the refreshed plugin metadata and `skills/` directory are loaded. The plugin manifest exposes `skills/`, and the main skill is `skills/convallaria/SKILL.md`.
 
 For other AI coding tools, point the agent at:
 
@@ -159,6 +180,13 @@ Refresh local integrations after editing the skill:
 python3 scripts/conva.py update
 ```
 
+When iterating on a local Codex plugin and you need to force Codex to notice refreshed metadata, use an explicit cachebuster:
+
+```bash
+python3 scripts/conva.py update --codex-cachebuster
+codex plugin add convallaria@personal
+```
+
 Skip the smoke test only when you are intentionally doing a metadata-only sync:
 
 ```bash
@@ -167,15 +195,13 @@ python3 scripts/conva.py update --no-smoke
 
 ## Uninstall
 
-Remove generated local Claude Code adapters:
+Remove generated Convallaria adapters:
 
 ```bash
 python3 scripts/conva.py uninstall
 ```
 
-The uninstall command only removes generated Claude Code files that still match their tracked source files. It does not delete `.claude/settings.local.json` or other local user settings.
-
-Remove the Codex plugin entry separately from the local marketplace or plugin manager that points at this checkout.
+The uninstall command removes project `.claude/` files that still match their tracked sources, managed user-level Claude Code commands containing the Convallaria marker, the generated personal Codex marketplace entry, and the `~/plugins/convallaria` symlink when it points at this checkout. It does not delete `.claude/settings.local.json` or unmanaged user files.
 
 ## Project Layout
 

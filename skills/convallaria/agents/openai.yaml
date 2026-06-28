@@ -1,4 +1,4 @@
 interface:
   display_name: "Convallaria"
   short_description: "Quiet brand craft from first feeling to final assets"
-  default_prompt: "Use $convallaria to route my design task and produce polished brand, system, logo, or asset deliverables."
+  default_prompt: "Use Convallaria to route my design task and produce polished brand, system, logo, or asset deliverables."

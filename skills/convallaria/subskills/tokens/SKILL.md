@@ -24,6 +24,17 @@ Use this reference when converting brand or design-system decisions into impleme
    - semantic roles: usage such as `background.canvas`
 4. Include typography, spacing, radius, shadow, opacity, z-index, motion, breakpoint, and sizing tokens when available.
 5. Add comments or notes for inferred values.
+6. For repeatable output, write a `tokens-spec.json` using `templates/tokens-spec.json`, then run the generator script.
+
+## Script
+
+Use the deterministic generator after converting design decisions into the structured spec:
+
+```bash
+python3 subskills/tokens/scripts/generate_tokens.py tokens-spec.json --out tokens
+```
+
+The script writes `tokens.json`, `tokens.css`, `tailwind.extend.js`, `theme.ts`, and `tokens.report.md`.
 
 ## Output Convention
 
@@ -42,3 +53,4 @@ tokens/
 - Avoid duplicate names for the same role.
 - Keep values consistent across CSS, JSON, and Tailwind outputs.
 - Note gaps when the source does not define a category.
+- Prefer the script for final handoff files so token names and values stay consistent across formats.

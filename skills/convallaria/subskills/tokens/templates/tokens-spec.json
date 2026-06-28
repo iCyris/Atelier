@@ -1,0 +1,51 @@
+{
+  "schema": "convallaria.tokens-spec.v1",
+  "project": {
+    "name": "Example Brand",
+    "slug": "example-brand"
+  },
+  "tokens": {
+    "color": {
+      "primitive": {
+        "lilyGreen": "#A7F3A2",
+        "ink": "#172018",
+        "paper": "#FAFBF7"
+      },
+      "semantic": {
+        "background": {
+          "canvas": "{color.primitive.paper}"
+        },
+        "text": {
+          "primary": "{color.primitive.ink}"
+        },
+        "accent": {
+          "primary": "{color.primitive.lilyGreen}"
+        }
+      }
+    },
+    "space": {
+      "xs": "0.25rem",
+      "sm": "0.5rem",
+      "md": "1rem",
+      "lg": "1.5rem"
+    },
+    "radius": {
+      "sm": "4px",
+      "md": "8px"
+    },
+    "font": {
+      "family": {
+        "sans": "Inter, system-ui, sans-serif"
+      }
+    },
+    "motion": {
+      "duration": {
+        "fast": "120ms",
+        "normal": "180ms"
+      }
+    }
+  },
+  "notes": [
+    "Replace example values with values derived from BRAND.md, DESIGN.md, or source files."
+  ]
+}

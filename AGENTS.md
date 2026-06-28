@@ -21,6 +21,7 @@ The project should feel like a careful design tool, not a prompt dump. Changes s
 - Claude Code command adapter sources live in `claude/commands/`.
 - Local generated Claude Code files live in `.claude/` and are ignored by git.
 - Codex plugin metadata lives in `.codex-plugin/plugin.json`.
+- Codex/OpenAI skill UI metadata lives in `skills/convallaria/agents/openai.yaml`.
 - Brand assets live in `assets/brand/`.
 
 Do not duplicate core workflow instructions between platforms. Update the canonical skill or owning subskill first, then sync adapters.
@@ -109,13 +110,21 @@ When changing brand, workflow, or output guidance:
 
 Codex reads this project as a plugin through `.codex-plugin/plugin.json`, which exposes `skills/`.
 
-Claude Code reads local adapter files from `.claude/`, generated from root `CLAUDE.md` and `claude/commands/` by:
+Claude Code adapter sources live in `claude/commands/`. Project-local generated files live in `.claude/`, and user-level install files live in `~/.claude/commands/` with a Convallaria managed marker.
+
+Generate only project-local adapters during maintenance with:
 
 ```bash
 python3 scripts/conva.py sync --no-codex-cachebuster
 ```
 
-After updating plugin metadata, start a new Codex thread after reinstalling or refreshing the plugin so the updated skill metadata is loaded.
+Install user-level Claude Code commands and the default personal Codex marketplace entry with:
+
+```bash
+python3 scripts/conva.py install
+```
+
+Codex cachebusting is opt-in. After updating plugin metadata, run `python3 scripts/conva.py update --codex-cachebuster`, reinstall with the printed `codex plugin add convallaria@personal` command, then start a new Codex thread so the updated skill metadata is loaded.
 
 Other AI coding tools should start from this file, then read `skills/convallaria/SKILL.md` and the routed subskill under `skills/convallaria/subskills/`. Do not duplicate platform-specific instructions into those tools unless the shared skill contract is insufficient.
 
