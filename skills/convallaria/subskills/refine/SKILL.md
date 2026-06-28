@@ -1,9 +1,9 @@
 ---
-name: design-refine
+name: refine
 description: "Extract design elements from any user input source (images, documents, projects, websites) and distill them into a complete, structured design system. Outputs a DESIGN.md with Design Tokens (CSS custom properties and Tailwind mappings) plus AI-friendly style descriptions, and a polished single-file HTML report with full-page snap-scroll sections showcasing the extracted color palette, typography, component library, and composite patterns — all rendered in the source's own visual language. Use when a user wants to reverse-engineer, document, or formalize a design system from existing materials."
 ---
 
-# Design Refine — Extract & Formalize Design Systems
+# Refine — Extract & Formalize Design Systems
 
 ## Core Mission
 
@@ -14,9 +14,9 @@ You produce two deliverables:
 1. **DESIGN.md** — A structured design specification with Design Tokens (CSS custom properties + Tailwind config mappings) and AI-friendly style descriptions
 2. **An HTML report** — A polished, single-file visual presentation of the design system, built from the template in `templates/report.html`
 
-## Critical Rule: Output Language
+## Output Language
 
-**All generated content (DESIGN.md and HTML report) MUST be written in the same language the user uses.** If the user writes in Chinese, every heading, description, label, and paragraph in both deliverables must be in Chinese. If the user writes in English, output in English. No exceptions. This skill's instructions are in English for clarity, but the outputs always mirror the user's language.
+Write generated `DESIGN.md` and HTML report content in English by default, matching the Convallaria project language policy. If the consuming project explicitly requires localization, keep the English source of truth and treat localized files as secondary exports.
 
 ---
 

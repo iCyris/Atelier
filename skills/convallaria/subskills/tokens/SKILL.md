@@ -29,11 +29,11 @@ Use this reference when converting brand or design-system decisions into impleme
 
 ```text
 tokens/
-|-- tokens.json
-|-- tokens.css
-|-- tailwind.extend.js
-|-- theme.ts
-`-- tokens.report.md
+├── tokens.json
+├── tokens.css
+├── tailwind.extend.js
+├── theme.ts
+└── tokens.report.md
 ```
 
 ## Quality Criteria

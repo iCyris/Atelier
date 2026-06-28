@@ -27,9 +27,9 @@ Do not duplicate core workflow instructions between platforms. Update the canoni
 
 ## Protected Dependency
 
-`skills/convallaria/subskills/design-refine/` is a vendored dependency. Do not edit files inside it unless the user explicitly asks to update that subskill.
+`skills/convallaria/subskills/refine/` originated as a vendored dependency and is now integrated into Convallaria's one-word subskill naming system. Preserve its extraction workflow carefully when editing it.
 
-If the parent skill path changes, moving the vendored folder with the parent directory is acceptable. Editing its contents is not.
+Keep its upstream license file intact when changing the integrated subskill.
 
 ## Language Policy
 
@@ -94,7 +94,7 @@ If verification cannot run, explain why and name the unverified risk.
 - Keep `README.md` focused on user experience and install/use flow.
 - Keep `AGENTS.md` focused on contributor and agent behavior.
 - Keep parent skill instructions concise and route detailed procedures to focused subskills.
-- Prefer concise one-word names for Convallaria-owned subskills. `design-refine` is the protected vendored exception.
+- Prefer concise one-word names for subskills.
 
 ## Design Quality Bar
 

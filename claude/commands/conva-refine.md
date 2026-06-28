@@ -1,4 +1,3 @@
 # Convallaria Refine
 
-Use `skills/convallaria/SKILL.md`, then read the vendored subskill at `skills/convallaria/subskills/design-refine/SKILL.md`. Follow that subskill exactly and do not modify its files.
-
+Use `skills/convallaria/SKILL.md`, then read `skills/convallaria/subskills/refine/SKILL.md`. Follow that subskill's extraction workflow and produce `DESIGN.md` plus its HTML report when requested.

@@ -1,6 +1,6 @@
 ---
 name: convallaria
-description: "Agentic design suite for routing professional design work across brand concepting, design-system extraction, logo and icon production, image optimization, token handoff, visual QA, and asset packaging. Use when a user asks Codex to create, refine, inspect, formalize, export, or QA visual identity systems, design systems, logos, images, UI styling, or design handoff assets. Also use as the coordinating parent skill for the bundled design-refine subskill."
+description: "Agentic design suite for routing professional design work across brand concepting, design-system extraction, logo and icon production, image optimization, token handoff, visual QA, and asset packaging. Use when a user asks Codex to create, refine, inspect, formalize, export, or QA visual identity systems, design systems, logos, images, UI styling, or design handoff assets. Also use as the coordinating parent skill for the bundled refine subskill."
 ---
 
 # Convallaria
@@ -13,7 +13,7 @@ Convallaria project files, templates, references, examples, and durable delivera
 
 Start by identifying the task family:
 
-- **Design-system extraction**: route to `subskills/design-refine/` without modifying that vendored subskill.
+- **Design-system extraction**: route to `subskills/refine/`.
 - **Brand concepting**: read `subskills/concept/SKILL.md`.
 - **Logo and icon production**: read `subskills/logo/SKILL.md`.
 - **Image optimization**: read `subskills/images/SKILL.md`.
@@ -35,12 +35,11 @@ Use the script as an advisor, not as the final authority. Prefer the user's expl
 
 ### Extract a Design System
 
-Use the vendored `design-refine` subskill when the user provides screenshots, a website, a codebase, a Figma export, a brand guide, or a mood description and asks for a formal design system.
+Use the `refine` subskill when the user provides screenshots, a website, a codebase, a Figma export, a brand guide, or a mood description and asks for a formal design system.
 
-1. Read `subskills/design-refine/SKILL.md`.
+1. Read `subskills/refine/SKILL.md`.
 2. Follow its workflow exactly.
 3. Produce `DESIGN.md` and the HTML report it specifies.
-4. Do not edit any file inside `subskills/design-refine/` unless the user explicitly asks to update that subskill.
 
 ### Create a Brand Direction
 
@@ -68,16 +67,16 @@ Use a project-local output folder unless the user names a destination:
 
 ```text
 convallaria-output/
-|-- BRAND.md
-|-- DESIGN.md
-|-- LOGO_SPEC.md
-|-- DESIGN_QA.md
-|-- asset-manifest.json
-|-- tokens/
-|-- logo/
-|-- images/
-|-- screenshots/
-`-- handoff/
+├── BRAND.md
+├── DESIGN.md
+├── LOGO_SPEC.md
+├── DESIGN_QA.md
+├── asset-manifest.json
+├── tokens/
+├── logo/
+├── images/
+├── screenshots/
+└── handoff/
 ```
 
 For every multi-file deliverable, create or update `asset-manifest.json` with:

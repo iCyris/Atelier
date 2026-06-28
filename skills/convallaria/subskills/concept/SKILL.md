@@ -40,5 +40,5 @@ Accept product descriptions, founder notes, audience summaries, screenshots, moo
 When brand direction is approved, route to:
 
 - `logo` for marks, wordmarks, lockups, and platform assets.
-- `design-refine` if the brand concept should become a complete design system.
+- `refine` if the brand concept should become a complete design system.
 - `export` when the user wants a packaged brand kit.

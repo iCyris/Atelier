@@ -6,7 +6,7 @@ Use this guide when the user's request is mixed, ambiguous, or spans more than o
 
 | Family | Use when the user asks for | Primary resource | Common outputs |
 | --- | --- | --- | --- |
-| Design-system extraction | extracting style, reverse-engineering visuals, formalizing existing UI, creating tokens from screenshots or code | `subskills/design-refine/SKILL.md` | `DESIGN.md`, `report.html` |
+| Refine | extracting style, reverse-engineering visuals, formalizing existing UI, creating tokens from screenshots or code | `subskills/refine/SKILL.md` | `DESIGN.md`, `report.html` |
 | Concept | naming, positioning, personality, brand voice, creative direction, visual territories | `subskills/concept/SKILL.md` | `BRAND.md` |
 | Logo | logo concepts, SVG cleanup, favicon/app icon export, lockups, clear space | `subskills/logo/SKILL.md` | `LOGO_SPEC.md`, `logo/` |
 | Images | compression, conversion, responsive variants, metadata removal | `subskills/images/SKILL.md` | `images/`, `image-manifest.json` |
@@ -27,7 +27,7 @@ Use this guide when the user's request is mixed, ambiguous, or spans more than o
 
 ### From screenshots to an implementation-ready design system
 
-1. `design-refine`
+1. `refine`
 2. `tokens`
 3. `audit` if there is an implementation to inspect
 4. `export`
@@ -40,7 +40,7 @@ Use this guide when the user's request is mixed, ambiguous, or spans more than o
 
 ### From an existing app to a design audit
 
-1. `design-refine` if no design system exists
+1. `refine` if no design system exists
 2. `audit`
 3. `tokens` if token drift needs repair
 
@@ -48,7 +48,7 @@ Use this guide when the user's request is mixed, ambiguous, or spans more than o
 
 - Route to the narrowest resource that can complete the task.
 - Use `pack` when the user wants a complete identity system, not just isolated concept copy or isolated logo exports.
-- Load `design-refine` only for extraction or formalization tasks; it is intentionally large.
+- Load `refine` only for extraction or formalization tasks; it is intentionally large.
 - Use scripts for image transforms, SVG rasterization, and manifest validation.
 - When multiple subskills are needed, create an `asset-manifest.json` early so each step can append outputs.
 - Ask a concise clarifying question only when the target deliverable or source asset is impossible to infer.

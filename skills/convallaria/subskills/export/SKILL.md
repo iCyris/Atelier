@@ -11,18 +11,18 @@ Use this reference when packaging multi-file design deliverables for another des
 
 ```text
 brand-pack/
-|-- BRAND.md
-|-- DESIGN.md
-|-- LOGO_SPEC.md
-|-- DESIGN_QA.md
-|-- asset-manifest.json
-|-- tokens/
-|-- logo/
-|-- images/
-|-- screenshots/
-`-- handoff/
-    |-- developer-handoff.md
-    `-- ai-agent-prompt.md
+├── BRAND.md
+├── DESIGN.md
+├── LOGO_SPEC.md
+├── DESIGN_QA.md
+├── asset-manifest.json
+├── tokens/
+├── logo/
+├── images/
+├── screenshots/
+└── handoff/
+    ├── developer-handoff.md
+    └── ai-agent-prompt.md
 ```
 
 Only include files that exist and are relevant to the task.

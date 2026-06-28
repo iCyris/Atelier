@@ -71,8 +71,6 @@ def check_english_sources() -> None:
     pattern = re.compile(r"[\u4e00-\u9fff]")
     for glob in TEXT_GLOBS:
         for path in ROOT.glob(glob):
-            if "subskills/design-refine" in path.as_posix():
-                continue
             if path.is_file():
                 text = path.read_text(encoding="utf-8")
                 check(not pattern.search(text), f"Non-English project text found in {path.relative_to(ROOT)}")
@@ -99,7 +97,7 @@ def check_routes() -> None:
         cwd=SKILL_DIR,
     )
     refine_routes = json.loads(refine.stdout)["suggestedRoutes"]
-    check(refine_routes[0]["route"] == "design-refine", "Design extraction route did not rank first")
+    check(refine_routes[0]["route"] == "refine", "Design extraction route did not rank first")
 
 
 def check_manifest_validation() -> None:

@@ -35,8 +35,8 @@ ROUTES = [
         ],
     ),
     Route(
-        "design-refine",
-        "subskills/design-refine/SKILL.md",
+        "refine",
+        "subskills/refine/SKILL.md",
         ["DESIGN.md", "report.html"],
         [
             "design system",

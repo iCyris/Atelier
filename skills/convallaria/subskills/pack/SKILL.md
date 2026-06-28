@@ -59,16 +59,16 @@ Avoid these patterns:
 
 ```text
 convallaria-output/
-|-- BRAND.md
-|-- LOGO_SPEC.md
-|-- asset-manifest.json
-|-- tokens/
-|   |-- tokens.json
-|   `-- tokens.css
-|-- logo/
-|   |-- source/
-|   `-- png/
-`-- handoff/
-    |-- developer-handoff.md
-    `-- ai-agent-prompt.md
+├── BRAND.md
+├── LOGO_SPEC.md
+├── asset-manifest.json
+├── tokens/
+│   ├── tokens.json
+│   └── tokens.css
+├── logo/
+│   ├── source/
+│   └── png/
+└── handoff/
+    ├── developer-handoff.md
+    └── ai-agent-prompt.md
 ```
