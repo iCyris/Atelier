@@ -40,6 +40,17 @@ def validate_manifest(path: Path) -> list[str]:
         candidate = (base / output_path).resolve()
         if not candidate.exists():
             errors.append(f"Missing output file: {output_path}")
+            continue
+        if not candidate.is_file():
+            continue
+        if candidate.stat().st_size == 0:
+            errors.append(f"Output file is empty: {output_path}")
+            continue
+        if candidate.suffix.lower() == ".json":
+            try:
+                json.loads(candidate.read_text(encoding="utf-8"))
+            except Exception as exc:
+                errors.append(f"Output JSON is invalid: {output_path}: {exc}")
     return errors
 
 

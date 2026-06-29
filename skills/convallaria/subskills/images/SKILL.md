@@ -5,6 +5,11 @@ description: "Image optimization workflow for bitmap compression, conversion, re
 
 # Image Optimization Workflow
 
+Use when: bitmap assets need compression, conversion, responsive variants, metadata stripping, or delivery manifests.
+Needs: source image files and any requested formats, size limits, quality targets, or transparency requirements.
+Produces: optimized image files plus `image-manifest.json` with dimensions, formats, byte sizes, and savings.
+Done when: outputs match real usage, source quality is preserved, and user-facing delivery reports before and after sizes.
+
 Use this reference for bitmap compression, conversion, responsive image generation, metadata removal, and asset delivery manifests.
 
 ## Process

@@ -50,6 +50,23 @@ def css_value(value: Any) -> str:
     return str(value).lower() if isinstance(value, bool) else str(value)
 
 
+def validate_token_references(tokens: dict[tuple[str, ...], Any]) -> None:
+    for path, value in sorted(tokens.items()):
+        if not isinstance(value, str):
+            continue
+        match = TOKEN_REF_RE.match(value)
+        if not match:
+            continue
+        reference = tuple(part for part in match.group(1).split(".") if part)
+        if not reference:
+            raise RuntimeError(f"Empty token reference at {'.'.join(path)}.")
+        if reference not in tokens:
+            raise RuntimeError(
+                f"Missing token reference at {'.'.join(path)}: "
+                f"{{{'.'.join(reference)}}} is not defined."
+            )
+
+
 def nested_set(root: dict[str, Any], path: tuple[str, ...], value: Any) -> None:
     cursor = root
     for part in path[:-1]:
@@ -136,6 +153,7 @@ def write_report(path: Path, spec: dict[str, Any], tokens: dict[tuple[str, ...],
 def generate(spec_path: Path, out_dir: Path) -> list[Path]:
     spec = load_spec(spec_path)
     tokens = flatten_tokens(spec["tokens"])
+    validate_token_references(tokens)
     out_dir.mkdir(parents=True, exist_ok=True)
     outputs = [
         out_dir / "tokens.json",

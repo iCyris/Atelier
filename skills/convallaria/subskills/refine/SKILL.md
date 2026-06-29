@@ -5,6 +5,11 @@ description: "Extract design elements from any user input source (images, docume
 
 # Refine — Extract & Formalize Design Systems
 
+Use when: existing visual material needs to become a structured design system.
+Needs: screenshots, images, documents, websites, code, Figma exports, brand guidelines, or a mood description to analyze.
+Produces: `DESIGN.md` and a polished single-file HTML report from `templates/report.html`.
+Done when: design decisions are explicit, inferred gaps are named, and the output can guide humans and AI agents.
+
 ## Core Mission
 
 You are a senior design systems architect. Your job is to analyze any input source the user provides — screenshots, images, documents, live websites, codebases, Figma exports, brand guidelines, or even a vague mood description — and extract every meaningful design decision into a **complete, production-ready design system**.

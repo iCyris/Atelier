@@ -5,6 +5,11 @@ description: "UI visual QA workflow for reviewing implementations against brand 
 
 # UI Visual QA Workflow
 
+Use when: a user needs UI visual QA against a brand system, design system, screenshots, tokens, or responsive states.
+Needs: the expected source of truth and either screenshots, a local app URL, or implementation files to inspect.
+Produces: `DESIGN_QA.md` with concrete findings, severity, expected behavior, and fixes when editing is in scope.
+Done when: defects and optional polish are separated, evidence is concrete, and no design rule is invented without a source.
+
 Use this reference when reviewing a UI implementation against a design system, screenshot, brand direction, or token set.
 
 ## Inputs

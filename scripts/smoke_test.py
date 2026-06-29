@@ -165,7 +165,12 @@ def check_routes() -> None:
 
 def check_manifest_validation() -> None:
     with tempfile.TemporaryDirectory(prefix="convallaria-manifest-") as tmp:
-        manifest_path = Path(tmp) / "asset-manifest.json"
+        tmp_path = Path(tmp)
+        manifest_path = tmp_path / "asset-manifest.json"
+        invalid_json_output = tmp_path / "invalid-output.json"
+        invalid_json_output.write_text("{not json", encoding="utf-8")
+        empty_output = tmp_path / "empty-output.md"
+        empty_output.write_text("", encoding="utf-8")
         manifest = {
             "schema": "convallaria.asset-manifest.v1",
             "project": {
@@ -205,10 +210,36 @@ def check_manifest_validation() -> None:
         manifest_path.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
         run(["python3", str(SKILL_DIR / "shared" / "scripts" / "validate_outputs.py"), str(manifest_path)])
 
+        bad_manifest_path = tmp_path / "bad-asset-manifest.json"
+        bad_manifest = dict(manifest)
+        bad_manifest["outputs"] = [
+            {
+                "path": str(empty_output),
+                "role": "empty",
+                "producer": "convallaria",
+            },
+            {
+                "path": str(invalid_json_output),
+                "role": "invalid-json",
+                "producer": "convallaria",
+            },
+        ]
+        bad_manifest_path.write_text(json.dumps(bad_manifest, indent=2), encoding="utf-8")
+        result = subprocess.run(
+            ["python3", str(SKILL_DIR / "shared" / "scripts" / "validate_outputs.py"), str(bad_manifest_path)],
+            cwd=ROOT,
+            text=True,
+            capture_output=True,
+        )
+        check(result.returncode != 0, "Manifest validator accepted empty or invalid JSON output files")
+        check("Output file is empty" in result.stderr, "Manifest validator did not report an empty output")
+        check("Output JSON is invalid" in result.stderr, "Manifest validator did not report invalid JSON output")
+
 
 def check_token_generation() -> None:
     with tempfile.TemporaryDirectory(prefix="convallaria-tokens-") as tmp:
-        out = Path(tmp) / "tokens"
+        tmp_path = Path(tmp)
+        out = tmp_path / "tokens"
         run(
             [
                 "python3",
@@ -222,6 +253,40 @@ def check_token_generation() -> None:
             path = out / name
             check(path.exists(), f"Token generator did not create {name}")
             check(path.stat().st_size > 0, f"Token generator created empty file: {name}")
+
+        bad_spec = tmp_path / "bad-tokens-spec.json"
+        bad_spec.write_text(
+            json.dumps(
+                {
+                    "schema": "convallaria.tokens-spec.v1",
+                    "tokens": {
+                        "color": {
+                            "semantic": {
+                                "text": {
+                                    "primary": "{color.primitive.missing}"
+                                }
+                            }
+                        }
+                    },
+                },
+                indent=2,
+            ),
+            encoding="utf-8",
+        )
+        result = subprocess.run(
+            [
+                "python3",
+                str(SKILL_DIR / "subskills" / "tokens" / "scripts" / "generate_tokens.py"),
+                str(bad_spec),
+                "--out",
+                str(tmp_path / "bad-tokens"),
+            ],
+            cwd=ROOT,
+            text=True,
+            capture_output=True,
+        )
+        check(result.returncode != 0, "Token generator accepted a missing token reference")
+        check("Missing token reference" in result.stderr, "Token generator did not report a missing token reference")
 
 
 def check_brand_logo() -> None:

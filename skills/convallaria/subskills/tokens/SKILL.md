@@ -5,6 +5,11 @@ description: "Design token workflow for converting brand or design-system decisi
 
 # Design Tokens Workflow
 
+Use when: brand or design-system decisions need implementation-ready tokens.
+Needs: `DESIGN.md`, `BRAND.md`, existing CSS variables, Tailwind config, theme files, or a structured `tokens-spec.json`.
+Produces: `tokens.json`, `tokens.css`, `tailwind.extend.js`, `theme.ts`, and `tokens.report.md`.
+Done when: token names are semantic, values are consistent across formats, and inferred gaps are noted.
+
 Use this reference when converting brand or design-system decisions into implementation-ready tokens.
 
 ## Supported Outputs

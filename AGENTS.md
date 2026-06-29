@@ -8,6 +8,20 @@ Convallaria is an agentic design suite for cultivating quiet brand systems from 
 
 The project should feel like a careful design tool, not a prompt dump. Changes should preserve this standard: specific taste, traceable decisions, deterministic asset operations, and practical handoff files.
 
+## Project Philosophy
+
+Convallaria should be obvious to try, hard to misuse, and still small.
+
+Optimize first for what a real first-time user cares about:
+
+- whether Convallaria is useful for their design task
+- what they should type first
+- what input they need to provide
+- what useful files they will get
+- whether those files are safe to hand off
+
+Prefer one clear front door over many equally prominent choices. Route quietly, produce clearly, verify lightly, and hand off cleanly. Do not add new command surfaces, workflow engines, compare systems, large configuration layers, or broad examples unless they solve a proven user problem better than a simpler edit.
+
 ## Source Of Truth
 
 - The canonical skill lives in `skills/convallaria/`.

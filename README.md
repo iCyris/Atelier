@@ -17,13 +17,39 @@
   <img alt="local plugin" src="https://img.shields.io/badge/distribution-local_plugin-6f42c1">
 </p>
 
-Convallaria is an agentic design suite for turning loose product or brand intent into a coherent identity system: brand direction, logo guidance, implementation tokens, visual QA, optimized assets, manifests, and handoff notes.
+Convallaria helps agents turn rough brand or UI material into useful design handoff files. It keeps the path quiet: one routed entry, focused design workflows, deterministic asset scripts, and durable outputs another designer, engineer, or agent can continue.
 
-It behaves less like a prompt collection and more like a small design studio for agents. The parent skill routes the brief, loads the focused subskill, uses deterministic scripts for fragile asset work, and leaves behind files another designer, engineer, or agent can continue.
+## Start With `/conva`
+
+Use `/conva` as the front door. Describe the design task in plain language and let Convallaria route the work.
+
+```text
+/conva I need a brand direction for this app idea.
+/conva Turn these screenshots into a design system.
+/conva Export this logo for favicon and app icon use.
+/conva QA this UI against the attached brand system.
+```
+
+## What Can I Give It?
+
+- a product idea, audience, name, tone, or mood
+- screenshots, a website, a codebase, or a visual reference
+- an existing logo, SVG, icon, or bitmap image
+- brand notes, design decisions, token files, or UI source files
+- a local app or screenshots that need visual QA
+
+## What Will I Get?
+
+- `BRAND.md` for positioning, voice, visual direction, and production decisions
+- `DESIGN.md` and `report.html` for extracted design systems
+- `LOGO_SPEC.md` and logo export guidance or assets
+- `tokens/` with CSS, JSON, Tailwind, and TypeScript theme files
+- optimized images and image manifests when bitmap assets are provided
+- `asset-manifest.json` for traceable multi-file handoff
 
 ## Skills
 
-Each design operation lives as a focused subskill. Use the parent `convallaria` skill to route mixed requests, or jump directly to the relevant subskill when the task is clear.
+Each design operation lives as a focused subskill. Most users should start with `/conva`; advanced users can jump directly to a specific command when the task is already clear.
 
 | Subskill | When | What it does |
 | --- | --- | --- |
@@ -71,10 +97,15 @@ This command:
 - runs the smoke test by default
 - prints the local Codex reinstall command, usually `codex plugin add convallaria@personal`
 
-For Claude Code, use the slash commands:
+For Claude Code, start with:
 
 ```text
 /conva
+```
+
+Advanced users can also jump directly to focused commands:
+
+```text
 /conva-concept
 /conva-logo
 /conva-refine
@@ -111,13 +142,13 @@ Then ask it to route to the relevant subskill under `skills/convallaria/subskill
 
 ## Use
 
-Starter prompts:
+Start with `/conva` and a plain-language brief:
 
 ```text
-Use Convallaria to create a complete brand identity for this product idea.
-Use Convallaria to turn these screenshots into a design system.
-Use Convallaria to produce logo exports and a handoff manifest.
-Use Convallaria to QA this UI against the attached brand system.
+/conva Create a complete brand identity for this product idea.
+/conva Turn these screenshots into a design system.
+/conva Produce logo exports and a handoff manifest.
+/conva QA this UI against the attached brand system.
 ```
 
 Route a request manually:

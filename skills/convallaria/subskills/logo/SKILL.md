@@ -5,6 +5,11 @@ description: "Logo and icon production workflow for concepts, SVG cleanup, locku
 
 # Logo System Workflow
 
+Use when: a user needs a mark, wordmark, lockup, favicon, app icon, social avatar, SVG cleanup, or platform export.
+Needs: brand direction, an existing source logo or SVG, or enough context to propose logo concepts honestly.
+Produces: `LOGO_SPEC.md` and logo assets when source files are available.
+Done when: source-of-truth files, usage rules, minimum sizes, export paths, and manifest entries are clear.
+
 Use this reference for logo concepts, SVG cleanup, lockups, favicon sets, app icons, and platform-specific exports.
 
 ## Deliverables

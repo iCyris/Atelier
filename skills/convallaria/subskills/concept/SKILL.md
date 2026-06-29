@@ -5,6 +5,11 @@ description: "Brand concepting workflow for positioning, audience, personality, 
 
 # Brand Concept Workflow
 
+Use when: a task starts from loose brand intent, product positioning, audience, naming, tone, mood, or early identity exploration.
+Needs: product context, audience, constraints, references, or enough directional notes to infer a useful starting point.
+Produces: `BRAND.md` when durable output is requested, with positioning, voice, visual territories, anti-patterns, and production direction.
+Done when: the recommended direction is specific enough to guide logo, color, typography, UI, imagery, and copy decisions.
+
 Use this reference for strategy-led identity work before design assets are produced.
 
 ## Inputs
